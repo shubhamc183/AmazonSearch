@@ -10,7 +10,7 @@ $ sudo apt-get python3
 ```
 * [MySql Database](http://www.tutorialspoint.com/mysql/mysql-installation.htm)
 
-Python Packages
+#Python Packages
  * Install pip
 
  ```sh
@@ -18,7 +18,7 @@ $ sudo apt-get install python3-pip
 ```
  * Regular Expression
 
-```sh
+ ```sh
 $ sudo pip3 install regex
 ```
  * Requests
