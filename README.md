@@ -29,7 +29,7 @@ $ sudo pip3 install regex
  * BeautifulSoup
  
  ```sh
- $ sudo pip install beautifulsoup4
+ $ sudo pip3 install beautifulsoup4
  ```
  * MySQLdb
   
