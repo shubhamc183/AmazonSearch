@@ -13,7 +13,7 @@ def scrape(q,n):
 	Q=Q[:len(Q)-3]
 	query=requests.get('http://www.amazon.in/s/url=search-alias%3Daps&field-keywords={s}&sort={t}'.format(s=Q,t=types[n-1]),headers=headers)
 	s=BeautifulSoup(query.text,"html.parser")
-	cursor.execute("create table amazon(name varchar(100),price real,rating integer)")
+	cursor.execute("create table amazon(name varchar(100),price integer,rating integer)")
 	for J in range(15):
 		res="result_"+str(J)
 		for i in s.findAll("li",{"id":res}):
@@ -32,6 +32,7 @@ def scrape(q,n):
 				if I!='[' and I!=']' and I!='"' and I!="'" and I!=" " and I!=",":
 					pri+=I
 			price=float(pri)
+			price=int(price)
 			rating=0
 			k=i.findAll("a",{"class":"a-size-small a-link-normal a-text-normal"})
 			if len(k)>1:
@@ -39,7 +40,7 @@ def scrape(q,n):
 				if str.isnumeric(t):
 					rating=int(t)
 			print(name,price,rating)
-			sql="insert into amazon values('%s',%f,%d )" % (name,price,rating)
+			sql='insert into amazon values("%s",%d,%d )' % (name,price,rating)
 			cursor.execute(sql)
 			db.commit()
 a=input("Name the product: ")
