@@ -56,8 +56,14 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 	
 	cursor=db.cursor() #set control in the database
 	
-	cursor.execute("create table amazon(link varchar(150), name varchar(100),price integer,rating integer)")
-	#create a table named amazon, column, link for the image, name of the product and price and rating
+	k=0
+	while 1:
+		try:
+			cursor.execute("create table amazon"+str(k)+"(link varchar(150), name varchar(100),price integer,rating integer)")
+			break
+			#create a table named amazon, column, link for the image, name of the product and price and rating
+		except:
+			k+=1
 	
 	print("The query link is",query.url)
 	
