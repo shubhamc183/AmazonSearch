@@ -51,7 +51,7 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 	
 	s=BeautifulSoup(query.text,"html.parser") #use beautiful soup to the beautify the html page to manipulate it
 	
-	db=MySQLdb.connect(host="localhost",user="shubham",passwd="Flyhigh123$",db="mysql") #connect to a local database
+	db=MySQLdb.connect(host="localhost",user="shubham",passwd="your_password",db="mysql") #connect to a local database
 	# the user can be changed to your own user and passwd can be changed to ur new passwd
 	
 	cursor=db.cursor() #set control in the database
