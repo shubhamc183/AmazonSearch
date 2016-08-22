@@ -35,3 +35,9 @@ $ sudo pip3 install regex
   
  [From here](http://www.tutorialspoint.com/python/python_database_access.htm), it seems mysql module is not supported by python3 anymore
 
+
+For Windows Users,
+It is recommended to use A Python IDE, like Enthough Canopy.
+As of now NO official support for Windows Exist.
+Although all of the packages above are supported by windows, they must be searched for and downloaded
+
