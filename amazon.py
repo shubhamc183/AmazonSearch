@@ -75,9 +75,9 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 		
 		i=s.find("li",{"id":"result_"+str(R)})# find the first result with the help of the id tag.
 		
-		if i==None:
+		if i==None and R==0:
 			#if no results are available the program breaks
-			print("Sorry No results match your search, Surender Please try another search :/")
+			print("Sorry No results match your search, Please try another search :/")
 			
 			break
 		
