@@ -1,6 +1,6 @@
 # Amazon Search
 
-Search the product prints it creates a html webpage to show results more visually in the same directory and saves in a MySql database
+Search the product prints result(name,price,ratings) , creates a html webpage(on the go) to show results more visually in the same directory and saves in a MySql database
 
 Requiremnts
 * Python 3.4
