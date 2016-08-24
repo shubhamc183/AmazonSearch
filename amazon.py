@@ -20,10 +20,7 @@ from bs4 import BeautifulSoup #The Package used for webscraping https://www.crum
 
 from urllib.request import urlretrieve #used to retrieve url info
 
-<<<<<<< HEAD
 import os
-=======
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 
 def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 
@@ -55,37 +52,19 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 	
 	s=BeautifulSoup(query.text,"html.parser") #use beautiful soup to the beautify the html page to manipulate it
 	
-<<<<<<< HEAD
 	db=MySQLdb.connect(host="localhost",user="shubham",passwd="Flyhigh123$",db="mysql") #connect to a local database
-=======
-	db=MySQLdb.connect(host="localhost",user="shubham",passwd="your_password",db="mysql") #connect to a local database
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 	# the user can be changed to your own user and passwd can be changed to ur new passwd
 	
 	cursor=db.cursor() #set control in the database
 	
-<<<<<<< HEAD
 	cursor.execute("create table amazon (link varchar(150), name varchar(100),price integer,rating integer)")
-=======
-	k=0
-	while 1:
-		try:
-			cursor.execute("create table amazon"+str(k)+"(link varchar(150), name varchar(100),price integer,rating integer)")
-			break
-			#create a table named amazon, column, link for the image, name of the product and price and rating
-		except:
-			k+=1
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 	
 	print("The query link is",query.url)
 	
 	R=-1
 	#The actual extraction from the soup starts here
-<<<<<<< HEAD
 	f=open('r.html','w')
 	head='<!DOCTYPE HTML><HMTL lang="en-US"><head><title>'+q+'</title></head><body><table>'
-=======
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 	while(1):
 		
 		R+=1
@@ -98,19 +77,12 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 			
 			break
 		
-<<<<<<< HEAD
 		if i!=None:
 			
 			link=i.find('img')['src'] #get the link to the image of the product
 			
 			plink=i.a['href'] #get the link of the product page
 
-=======
-		else:
-			
-			link=i.find('img')['src'] #get the link to the image of the product
-			
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 			name=i.find('h2').text[:100]# get the product name
 			
 			price=i.find("span",{"class":"a-size-base a-color-price s-price a-text-bold"}) # get the price based on the class tag
@@ -163,7 +135,6 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 						break
 			#print all the three properties
 			print(name,price,rating)
-<<<<<<< HEAD
 
 			head+='<tr>'
 			head+='<td><a href="'+plink+'"target="_blank"><img src="'+link+'"</img></a></td>'
@@ -173,9 +144,6 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 			head+='</tr>'
 
 						
-=======
-			
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 			sql='insert into amazon values("%s", "%s",%d,%d )' % (link,name,price,rating)#insert these values into the database.
 			#link:Image link, Product name, Its price and rating
 			
@@ -189,15 +157,12 @@ def scrape(q,n): #The Actual Scraping function, Go below to see the Call.
 				
 				db.rollback()
 				#undo the previous changes in the database and try again.
-<<<<<<< HEAD
 		else:
 			break
 	head+='</table></body></html>'
 	f.write(head)
 	f.close()
 	#os.system('firefox r.html') #uncomment if using on linux system..it will directly open the webpage generated
-=======
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
 				
 if __name__ == "__main__":
 	#The Actual program execution starts from here. This program cannot be used as a package therefore.
@@ -224,7 +189,4 @@ if __name__ == "__main__":
 		else: #Any other input gives a message to enter again
 	
 			print("try again	or press e/E for exiting..!")
-<<<<<<< HEAD
 
-=======
->>>>>>> 6e1a5abb483d6358416afd1a990a6e11e9fd86bf
